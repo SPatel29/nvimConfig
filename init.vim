@@ -4,7 +4,9 @@ set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 set autoindent              " indent a new line the same amount as the line just typed
 set incsearch
+set relativenumber
 set number                  " add line numbers
+set number relativenumber
 set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   " allows auto-indenting depending on file type
 set tabstop=4               " number of columns occupied by a tab character
@@ -17,6 +19,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 Plug 'universal-ctags/ctags'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'frazrepo/vim-rainbow'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -41,3 +45,7 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
+au FileType c,cpp,objc,objcpp call rainbow#load()
+let g:rainbow_active = 1
+
+
